@@ -1,4 +1,5 @@
 def process_text(text):
+    #lines = text.split("\n")
     lines = text.readlines()
     combined_text = "0"
     combined_number = 0
@@ -9,8 +10,8 @@ def process_text(text):
         combined_text = first+last
         combined_number += int(combined_text)
 
-        line = line.replace("one", "1e")
-        line = line.replace("two", "2o")
+        line = line.replace("one", "o1e")
+        line = line.replace("two", "t2o")
         line = line.replace("three", "3")
         line = line.replace("four", "4")
         line = line.replace("five", "5")
