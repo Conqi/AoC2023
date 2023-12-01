@@ -9,15 +9,15 @@ def process_text(text):
         combined_text = first+last
         combined_number += int(combined_text)
 
-        line = line.replace("one", "1e")
-        line = line.replace("two", "2o")
-        line = line.replace("three", "3")
-        line = line.replace("four", "4")
-        line = line.replace("five", "5")
-        line = line.replace("six", "6")
-        line = line.replace("seven", "7n")
-        line = line.replace("eight", "8t")
-        line = line.replace("nine", "9")
+        line = line.replace("one", "o1e")
+        line = line.replace("two", "t2o")
+        line = line.replace("three", "t3e")
+        line = line.replace("four", "f4r")
+        line = line.replace("five", "f5e")
+        line = line.replace("six", "s6x")
+        line = line.replace("seven", "s7n")
+        line = line.replace("eight", "e8t")
+        line = line.replace("nine", "n9e")
         first, last = find_numbers(line)
         combined_text_replaced = first+last
         combined_number_replaced += int(combined_text_replaced)
@@ -36,9 +36,11 @@ def find_numbers(line):
             if first == None:
                 first = line[i] 
             last = line[i]
+    if first == None:
+        first = "0"
     if last == None:
         last = first
     return first, last 
 
-input = open("input")
+input = open("Day01/input")
 process_text(input)
