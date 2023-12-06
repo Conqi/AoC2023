@@ -5,6 +5,7 @@ gigadistance = int("".join(lines[1].split()[1:]))
 
 times = [int(x) for x in lines[0].split()[1:]]
 distances = [int(x) for x in lines[1].split()[1:]]
+
 solution = 1
 
 for time, distance in zip(times, distances):
@@ -16,7 +17,16 @@ for time, distance in zip(times, distances):
             break
     solution *= winning_amount
 
-for seconds in range(gigatime+1):
+start_second = int(gigatime/2)
+
+#find start time as tenth of gigatime
+while True:
+    distance_travelled = (gigatime-start_second)*(start_second)
+    if distance_travelled < gigadistance:
+        break
+    start_second = int(start_second-(start_second/100))
+
+for seconds in range(start_second, int(gigatime/2)):
         distance_travelled = (gigatime-seconds)*(seconds)
         if distance_travelled > gigadistance:
             winning_amount = gigatime - (seconds * 2) + 1
