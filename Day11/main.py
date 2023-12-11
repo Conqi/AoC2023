@@ -1,6 +1,3 @@
-import time
-start = time.time()
-
 columns_with_galaxies = []
 rows_without_galaxies = []
 galaxies = []
@@ -31,7 +28,6 @@ for input in open("Day11/input").readlines():
 expanded_galaxies = galaxies.copy()
 mega_expanded_galaxies = galaxies.copy()
 
-
 for i in range(len(line)):
     if i not in columns_with_galaxies:
         for j in range(len(galaxies)):
@@ -46,7 +42,6 @@ for i in range(line_counter):
                 expanded_galaxies[j] = expanded_galaxies[j][0]+1, expanded_galaxies[j][1]
                 mega_expanded_galaxies[j] = mega_expanded_galaxies[j][0]+999999, mega_expanded_galaxies[j][1]
 
-
 for i in range(len(galaxies)):
     for j in range(i+1, len(galaxies)):
         solution1 += abs(expanded_galaxies[i][0]-expanded_galaxies[j][0])+abs(expanded_galaxies[i][1]-expanded_galaxies[j][1])
@@ -54,4 +49,3 @@ for i in range(len(galaxies)):
 
 print(solution1)
 print(solution2)
-print(time.time() - start)
